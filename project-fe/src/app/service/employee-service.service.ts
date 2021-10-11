@@ -13,6 +13,6 @@ export class EmployeeServiceService {
   ) { }
 
   addEmployee(obj) {
-    return this.http.post<any>(environment.apiBaseUrl  + '/api/employee', obj)
+    return this.http.post<any>(environment.baseURL + 'employee', obj)
   }
 }
