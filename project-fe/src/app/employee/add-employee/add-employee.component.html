@@ -1,0 +1,26 @@
+<body>
+
+    <form action="/action_page.php" [formGroup]="empForm">
+        <div class="container">
+            <h1>Employee Form</h1>
+            <p>Please fill in this form to add new employee.</p>
+            <hr>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="name" id="name" required formControlName="name">
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required formControlName="email">
+
+            <label for="mobile"><b>Mobile</b></label>
+            <input type="number" placeholder="Enter mobile number" name="mobile" id="mobile" formControlName="mobile">
+
+            <label for="experience"><b>Experience</b></label>
+            <input type="number" placeholder="Enter years of experience" name="experience" id="experience" required formControlName="experience">
+
+            <hr>
+
+            <button type="submit" class="registerbtn" (click)="onSubmitBtn()">Submit</button>
+        </div>
+    </form>
+
+</body>
