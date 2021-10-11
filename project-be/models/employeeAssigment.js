@@ -7,7 +7,7 @@ const employeeAssigmentSchema = new Schema({
     empId: {
         type: mongoose.Schema.Types.ObjectId, ref: "Employee"
     },
-    empAssignToId: {
+    supervisorId: {
         type: mongoose.Schema.Types.ObjectId, ref: "Employee"
     },
     assignOn: {
