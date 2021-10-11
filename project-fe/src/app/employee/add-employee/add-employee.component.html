@@ -5,17 +5,44 @@
             <h1>Employee Form</h1>
             <p>Please fill in this form to add new employee.</p>
             <hr>
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Name" name="name" id="name" required formControlName="name">
+            <div>
+                <label for="name"><b>Name</b></label> <sup class="text-danger">*</sup>
+                <input type="text" placeholder="Enter Name" name="name" id="name" required formControlName="name">
+                <span *ngIf="!empForm.get('name').valid && empForm.get('name').touched ||(isSubmited && nameError)"
+                    class="error-msg">Employee name is required
+                </span>
+            </div>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required formControlName="email">
+            <br>
+            <div>
+                <label for="email"><b>Email</b></label> <sup class="text-danger">*</sup>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required formControlName="email">
+                <span *ngIf="!empForm.get('email').valid && empForm.get('email').touched ||(isSubmited && EmailError)"
+                    class="error-msg">Employee email is required
+                </span>
+            </div>
+            <br>
+            <div>
+                <label for="mobile"><b>Mobile</b></label> <sup class="text-danger">*</sup>
+                <input type="number" placeholder="Enter mobile number" name="mobile" id="mobile"
+                    formControlName="mobile">
+                <span
+                    *ngIf="!empForm.get('mobile').valid && empForm.get('mobile').touched ||(isSubmited && mobileError)"
+                    class="error-msg">Employee mobile number is required
+                </span>
+            </div>
+            <br>
 
-            <label for="mobile"><b>Mobile</b></label>
-            <input type="number" placeholder="Enter mobile number" name="mobile" id="mobile" formControlName="mobile">
+            <div>
+                <label for="experience"><b>Experience</b></label> <sup class="text-danger">*</sup>
+                <input type="number" placeholder="Enter years of experience" name="experience" id="experience" required
+                    formControlName="experience">
+                <span
+                    *ngIf="!empForm.get('experience').valid && empForm.get('experience').touched ||(isSubmited && experienceError)"
+                    class="error-msg">Employee experience is required
+                </span>
+            </div>
 
-            <label for="experience"><b>Experience</b></label>
-            <input type="number" placeholder="Enter years of experience" name="experience" id="experience" required formControlName="experience">
 
             <hr>
 

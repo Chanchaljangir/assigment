@@ -14,10 +14,15 @@ export class AddEmployeeComponent implements OnInit {
   loading: boolean = false;
   redirectURL = null;
   private loggedIn: boolean;
+  isSubmited: boolean = false;
+  experienceError: boolean;
+  mobileError: boolean;
+  EmailError: boolean;
+  nameError: boolean;
   // public config: ToasterConfig = new ToasterConfig({ limit: 1 });
   constructor(private fb: FormBuilder, private empService: EmployeeServiceService,
     // private ts: ToasterService,
-    ) { }
+  ) { }
   ngOnInit() {
     this.initForm();
   }
@@ -25,27 +30,33 @@ export class AddEmployeeComponent implements OnInit {
     this.empForm = this.fb.group({
       name: ["", Validators.required],
       email: ["", Validators.required],
-      mobile:[""],
-      experience:[""]
+      mobile: ["", Validators.required],
+      experience: ["", Validators.required]
     });
   }
 
   onSubmitBtn() {
-    console.log("this.empForm.value",this.empForm.value)
+    this.isSubmited = true;
+    this.nameError = this.empForm.controls.name.invalid;
+    this.EmailError = this.empForm.controls.email.invalid;
+    this.mobileError = this.empForm.controls.mobile.invalid;
+    this.experienceError = this.empForm.controls.experience.invalid;
+
+    console.log("this.empForm.value", this.empForm.value)
     if (this.empForm.valid) {
       this.loading = true;
       this.empService.addEmployee(this.empForm.value).subscribe((res: any) => {
+        this.loading = false;
+        if (res.IsSuccess) {
           this.loading = false;
-          if (res.IsSuccess) {
-            this.loading = false;
-            // this.ts.pop("success", "", "Logged in");
-            // this.initLoginForm();
-          } else {
-            this.loading = false;
-            //console.log("error invalid ");
-            // this.ts.pop("error", "", "Invalid mobile/password");
-          }
-        },
+          // this.ts.pop("success", "", "Logged in");
+          // this.initLoginForm();
+        } else {
+          this.loading = false;
+          //console.log("error invalid ");
+          // this.ts.pop("error", "", "Invalid mobile/password");
+        }
+      },
         (error) => {
           this.loading = false;
           //console.log(error);
