@@ -7,10 +7,10 @@
             <th>Allocate Supervisor </th>
             <th>View Details</th>
         </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
+        <tr *ngFor="let emp of employeeData">
+            <td>{{emp?.name}}</td>
+            <td>{{emp?.email}}</td>
+            <td>{{emp?.experience}}</td>
             <td><button type="button">Allocate</button></td>
             <td><button type="button">View</button></td>
 

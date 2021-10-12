@@ -15,4 +15,8 @@ export class EmployeeServiceService {
   addEmployee(obj) {
     return this.http.post<any>(environment.baseURL + 'employee', obj)
   }
+
+  getAllEmployee() {
+    return this.http.get<any>(environment.baseURL + 'employees')
+  }
 }

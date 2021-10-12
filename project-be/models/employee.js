@@ -4,9 +4,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EmployeeSchema = new Schema({
-    jobId: {
-        type: mongoose.Schema.Types.ObjectId, ref: "Job"
-    },
     name: String,
     email: String,
     mobile: String,

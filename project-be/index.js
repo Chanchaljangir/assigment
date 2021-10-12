@@ -4,6 +4,7 @@ let bodyParser = require("body-parser");
 let http = require("http");
 let cors = require("cors");
 let nLog = require("noogger");
+let mongoose = require("mongoose");
 
 // Init App
 var app = express();
@@ -22,6 +23,17 @@ nLog.init(nlogParams);
 
 //Use CORS
 app.use(cors());
+
+// connect to db
+mongoose.connect(
+    process.env.MONGO_DB_CONN_STRING,
+    { useNewUrlParser: true },
+    function (err) {
+        if (err) console.log(err);
+        else console.log("connected..");
+    }
+);
+
 
 // Use body-parser to get POST requests for API use
 app.use(
