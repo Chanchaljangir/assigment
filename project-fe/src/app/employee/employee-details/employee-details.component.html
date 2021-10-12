@@ -1,1 +1,66 @@
-<p>employee-details works!</p>
+
+<div class="add-details">
+    <h1>Employee Personal Details</h1>
+    <div class="cover-outer edit-details mt40" id="viewStudentId">
+        <div class="row">
+            <div class="col-md-10 right">
+                <div class="right-inner mt20">
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Name</p>
+                            <span>{{empData?.name}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Email</p>
+                            <span>{{empData?.email}}</span>
+                        </div>
+                    </div>
+    
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Mobile Number</p>
+                            <span>{{empData?.mobile}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Experience</p>
+                            <span>{{empData?.experience}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="add-details">
+    <h1>Employee's Supervisor Details</h1>
+    <div class="cover-outer edit-details mt40" id="viewStudentId">
+        <div class="row">
+            <div class="col-md-10 right">
+                <div class="right-inner mt20">
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Name</p>
+                            <span>{{supervisorData?.supervisorId?.name}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Email</p>
+                            <span>{{supervisorData?.supervisorId?.email}}</span>
+                        </div>
+                    </div>
+    
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Mobile Number</p>
+                            <span>{{supervisorData?.supervisorId?.mobile}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Experience</p>
+                            <span>{{supervisorData?.supervisorId?.experience}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
