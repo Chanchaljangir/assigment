@@ -31,7 +31,7 @@
                 <div>
                     <select (change)="selectedSupervisor($event.target.value)">
                         <option value="" selected disabled>Select Supervisor</option>
-                        <option *ngFor="let option of employeeData" [value]="option._id">{{option?.name}}</option>
+                        <option *ngFor="let option of supervisorData" [value]="option._id">{{option?.name}}</option>
                     </select>
                 </div>
                 <button type="submit" (click)="onAllocateBtn()">Allocate</button>

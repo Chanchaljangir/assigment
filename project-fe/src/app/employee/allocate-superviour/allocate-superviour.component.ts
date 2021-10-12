@@ -12,6 +12,7 @@ export class AllocateSuperviourComponent implements OnInit {
   empName: any;
   supervisorId: any;
   empId: any;
+  supervisorData: any;
 
   constructor(private empService: EmployeeServiceService) { }
 
@@ -34,11 +35,27 @@ export class AllocateSuperviourComponent implements OnInit {
   }
   modalOpen(name) {
     this.empId = name;
+    this.getAllEligiableSupervisor();
     $("#myModal").modal('show');
   }
   selectedSupervisor(event) {
     this.supervisorId = event;
   }
+  getAllEligiableSupervisor() {
+    this.empService.getAllEligiableSupervisor(this.empId).subscribe((res: any) => {
+      this.loading = false;
+      if (res.IsSuccess) {
+        this.loading = false;
+        this.supervisorData = res.Data;
+        // this.ts.pop("success", "", "Logged in");
+      } else {
+        this.loading = false;
+        console.log("something wents wrong ");
+        // this.ts.pop("error", "", "Invalid mobile/password");
+      }
+    });
+  }
+
   onAllocateBtn() {
     let data = {
       empId: this.empId,

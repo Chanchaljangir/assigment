@@ -19,8 +19,11 @@ export class EmployeeServiceService {
   getAllEmployee() {
     return this.http.get<any>(environment.baseURL + 'employees')
   }
+  getAllEligiableSupervisor(empId) {
+    return this.http.get<any>(environment.baseURL + 'eligiableSupervisoryees/' + empId)
+  }
 
-  allocateSupervisor(obj){
-    return this.http.post<any>(environment.baseURL + 'assignEmployee',obj)
+  allocateSupervisor(obj) {
+    return this.http.post<any>(environment.baseURL + 'assignEmployee', obj)
   }
 }
