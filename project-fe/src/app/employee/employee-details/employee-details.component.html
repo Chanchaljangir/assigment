@@ -13,6 +13,11 @@
                         <div class="org-detail-text mt20">
                             <p>Email</p>
                             <span>{{empData?.email}}</span>
+                        </div><br>
+                        <div class="org-detail-text">
+                            <p>Supervised  By</p>
+                            <span>{{supervisorData?.supervisorId?.name}}</span>
+                            <a>view details</a>
                         </div>
                     </div>
     
@@ -24,8 +29,25 @@
                         <div class="org-detail-text mt20">
                             <p>Experience</p>
                             <span>{{empData?.experience}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Supervisor  Of</p>
+                            <span>{{supervisorOfData.length}} Employees</span>
+                            <a>view details</a>
+                            <!-- <span *ngFor="let sup of supervisorOfData">{{sup?.empId?.name}},</span> -->
                         </div>
                     </div>
+
+                    <!-- <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>{{empData?.name}} Supervisor By</p>
+                            <span>{{supervisorData?.supervisorId?.name}}</span>
+                        </div><br>
+                        <div class="org-detail-text mt20">
+                            <p>Experience</p>
+                            <span>{{empData?.experience}}</span>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ export class EmployeeDetailsComponent implements OnInit {
   loading: boolean;
   empData: any;
   supervisorData: any;
+  supervisorOfData: any;
 
   constructor(private empService: EmployeeServiceService, private route: ActivatedRoute,) {
     this.route.params.subscribe((params: Params) => {
@@ -60,6 +61,7 @@ export class EmployeeDetailsComponent implements OnInit {
         this.loading = false;
         if (res.Data.length > 0) {
           console.log("she supervious emp")
+          this.supervisorOfData = res.Data;
         } else {
           console.log("he no superviour any emp")
         }
