@@ -11,3 +11,9 @@ table {
   }
   
   tr:nth-child(even){background-color: #f2f2f2}
+  .modalLable{
+    padding-right: 20px;
+  }
+  .select{
+    width: 60%;
+  }
