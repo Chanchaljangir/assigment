@@ -4,7 +4,7 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Mobile</th>
+            <th>Designation</th>
             <th>Joining Date</th>
             <th>Allocate Supervisor </th>
             <th>View Details</th>
@@ -12,7 +12,7 @@
         <tr *ngFor="let emp of employeeData">
             <td>{{emp?.name}}</td>
             <td>{{emp?.email}}</td>
-            <td>{{emp?.experience}}</td>
+            <td>{{emp?.designation}}</td>
             <td>{{emp?.registedOn | date}}</td>
             <td><button type="button" class="btn btn-info" (click)="modalOpen(emp?._id)">Allocate</button></td>
             <td><button type="button" class="btn btn-primary" [routerLink]="['/details', emp?._id]">View</button></td>
@@ -35,7 +35,7 @@
                     <label class="modalLable">Select supervisor</label>
                     <select class="select" (change)="selectedSupervisor($event.target.value)">
                         <option value="" selected disabled>Select Supervisor</option>
-                        <option *ngFor="let option of supervisorData" [value]="option._id">{{option?.name}}</option>
+                        <option *ngFor="let option of supervisorData" [value]="option._id">{{option?.name}} ({{option?.designation}})</option>
                     </select>
                 </div>
 

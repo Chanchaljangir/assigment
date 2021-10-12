@@ -23,12 +23,12 @@
             </div>
             <br>
             <div>
-                <label for="mobile"><b>Mobile</b></label> <sup class="text-danger">*</sup>
-                <input type="number" placeholder="Enter mobile number" name="mobile" id="mobile"
-                    formControlName="mobile">
+                <label for="designation"><b>Designation</b></label> <sup class="text-danger">*</sup>
+                <input type="text" placeholder="Enter designation number" name="designation" id="designation"
+                    formControlName="designation">
                 <span
-                    *ngIf="!empForm.get('mobile').valid && empForm.get('mobile').touched ||(isSubmited && mobileError)"
-                    class="error-msg">Employee mobile number is required
+                    *ngIf="!empForm.get('designation').valid && empForm.get('designation').touched ||(isSubmited && designationError)"
+                    class="error-msg">Employee designation number is required
                 </span>
             </div>
             <br>

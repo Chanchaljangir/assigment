@@ -16,7 +16,7 @@ export class AddEmployeeComponent implements OnInit {
   private loggedIn: boolean;
   isSubmited: boolean = false;
   experienceError: boolean;
-  mobileError: boolean;
+  designationError: boolean;
   EmailError: boolean;
   nameError: boolean;
   // public config: ToasterConfig = new ToasterConfig({ limit: 1 });
@@ -30,7 +30,7 @@ export class AddEmployeeComponent implements OnInit {
     this.empForm = this.fb.group({
       name: ["", Validators.required],
       email: ["", Validators.required],
-      mobile: ["", Validators.required],
+      designation: ["", Validators.required],
       experience: ["", Validators.required]
     });
   }
@@ -39,7 +39,7 @@ export class AddEmployeeComponent implements OnInit {
     this.isSubmited = true;
     this.nameError = this.empForm.controls.name.invalid;
     this.EmailError = this.empForm.controls.email.invalid;
-    this.mobileError = this.empForm.controls.mobile.invalid;
+    this.designationError = this.empForm.controls.designation.invalid;
     this.experienceError = this.empForm.controls.experience.invalid;
 
     console.log("this.empForm.value", this.empForm.value)
@@ -54,13 +54,13 @@ export class AddEmployeeComponent implements OnInit {
         } else {
           this.loading = false;
           //console.log("error invalid ");
-          // this.ts.pop("error", "", "Invalid mobile/password");
+          // this.ts.pop("error", "", "Invalid designation/password");
         }
       },
         (error) => {
           this.loading = false;
           //console.log(error);
-          // this.ts.pop("error", "", "Invalid mobile/password");
+          // this.ts.pop("error", "", "Invalid designation/password");
         }
       );
     } else {

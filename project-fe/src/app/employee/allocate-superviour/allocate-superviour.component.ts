@@ -65,6 +65,7 @@ export class AllocateSuperviourComponent implements OnInit {
       this.loading = false;
       if (res.IsSuccess) {
         this.loading = false;
+        $("#myModal").modal('hide');
         // this.ts.pop("success", "", "Successfully allocated");
       } else {
         this.loading = false;

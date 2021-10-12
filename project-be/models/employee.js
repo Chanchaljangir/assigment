@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const EmployeeSchema = new Schema({
     name: String,
     email: String,
-    mobile: String,
+    designation: String,
     experience: String,
     isDeleted: {
         type: Boolean,

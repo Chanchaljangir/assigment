@@ -1,4 +1,3 @@
-
 <div class="add-details">
     <h1>Employee Personal Details</h1>
     <div class="cover-outer edit-details mt40" id="viewStudentId">
@@ -15,23 +14,23 @@
                             <span>{{empData?.email}}</span>
                         </div><br>
                         <div class="org-detail-text">
-                            <p>Supervised  By</p>
+                            <p>Supervised By</p>
                             <span>{{supervisorData?.supervisorId?.name}}</span>
                             <a>view details</a>
                         </div>
                     </div>
-    
+
                     <div class="d-block">
                         <div class="org-detail-text">
-                            <p>Mobile Number</p>
-                            <span>{{empData?.mobile}}</span>
+                            <p>Designation</p>
+                            <span>{{empData?.designation}}</span>
                         </div><br>
                         <div class="org-detail-text mt20">
                             <p>Experience</p>
                             <span>{{empData?.experience}}</span>
                         </div><br>
                         <div class="org-detail-text mt20">
-                            <p>Supervisor  Of</p>
+                            <p>Supervisor Of</p>
                             <span>{{supervisorOfData.length}} Employees</span>
                             <a>view details</a>
                             <!-- <span *ngFor="let sup of supervisorOfData">{{sup?.empId?.name}},</span> -->
@@ -70,16 +69,52 @@
                             <span>{{supervisorData?.supervisorId?.email}}</span>
                         </div>
                     </div>
-    
+
                     <div class="d-block">
                         <div class="org-detail-text">
-                            <p>Mobile Number</p>
-                            <span>{{supervisorData?.supervisorId?.mobile}}</span>
+                            <p>Designation</p>
+                            <span>{{supervisorData?.supervisorId?.designation}}</span>
                         </div><br>
                         <div class="org-detail-text mt20">
                             <p>Experience</p>
                             <span>{{supervisorData?.supervisorId?.experience}}</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ///////////////////////// supervisor of ///////////////////// -->
+<div class="add-details">
+    <h1>{{empData?.name}} Supervisor of {{supervisorOfData.length}} Employees</h1>
+    <div class="cover-outer edit-details mt40" id="viewStudentId">
+        <div class="row">
+            <div class="col-md-10 right">
+                <div class="right-inner mt20" *ngFor="let sup of supervisorOfData; let i=index">
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <span>{{i+1}}</span>
+                        </div><br>
+                    </div>
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Name</p>
+                            <span>{{sup?.empId?.name}}</span>
+                        </div><br>
+                    </div>
+
+                    <div class="d-block">
+                        <div class="org-detail-text mt20">
+                            <p>Email</p>
+                            <span>{{sup?.empId?.email}}</span>
+                        </div><br>
+                    </div>
+                    <div class="d-block">
+                        <div class="org-detail-text">
+                            <p>Designation</p>
+                            <span>{{sup?.empId?.designation}}</span>
+                        </div><br>
                     </div>
                 </div>
             </div>
