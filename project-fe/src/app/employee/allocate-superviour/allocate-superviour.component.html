@@ -11,9 +11,35 @@
             <td>{{emp?.name}}</td>
             <td>{{emp?.email}}</td>
             <td>{{emp?.experience}}</td>
-            <td><button type="button">Allocate</button></td>
+            <td><button type="button" (click)="modalOpen(emp?._id)">Allocate</button></td>
             <td><button type="button">View</button></td>
 
         </tr>
     </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <select (change)="selectedSupervisor($event.target.value)">
+                        <option value="" selected disabled>Select Supervisor</option>
+                        <option *ngFor="let option of employeeData" [value]="option._id">{{option?.name}}</option>
+                    </select>
+                </div>
+                <button type="submit" (click)="onAllocateBtn()">Allocate</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeServiceService } from 'src/app/service/employee-service.service';
-
+declare var $;
 @Component({
   selector: 'app-allocate-superviour',
   templateUrl: './allocate-superviour.component.html',
@@ -9,13 +9,16 @@ import { EmployeeServiceService } from 'src/app/service/employee-service.service
 export class AllocateSuperviourComponent implements OnInit {
   loading: boolean;
   employeeData: any;
+  empName: any;
+  supervisorId: any;
+  empId: any;
 
-  constructor(private empService:EmployeeServiceService) { }
+  constructor(private empService: EmployeeServiceService) { }
 
   ngOnInit() {
-    this. getAllEmployee();
+    this.getAllEmployee();
   }
-  getAllEmployee(){
+  getAllEmployee() {
     this.empService.getAllEmployee().subscribe((res: any) => {
       this.loading = false;
       if (res.IsSuccess) {
@@ -26,6 +29,30 @@ export class AllocateSuperviourComponent implements OnInit {
         this.loading = false;
         console.log("something wents wrong ");
         // this.ts.pop("error", "", "Invalid mobile/password");
+      }
+    });
+  }
+  modalOpen(name) {
+    this.empId = name;
+    $("#myModal").modal('show');
+  }
+  selectedSupervisor(event) {
+    this.supervisorId = event;
+  }
+  onAllocateBtn() {
+    let data = {
+      empId: this.empId,
+      supervisorId: this.supervisorId
+    }
+    this.empService.allocateSupervisor(data).subscribe((res: any) => {
+      this.loading = false;
+      if (res.IsSuccess) {
+        this.loading = false;
+        // this.ts.pop("success", "", "Successfully allocated");
+      } else {
+        this.loading = false;
+        console.log("something wents wrong ");
+        // this.ts.pop("error", "", "Something wents wrong");
       }
     });
   }
