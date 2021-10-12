@@ -15,8 +15,13 @@
                         </div><br>
                         <div class="org-detail-text">
                             <p>Supervised By</p>
-                            <span>{{supervisorData?.supervisorId?.name}}</span>
-                            <a>view details</a>
+                            <ng-container *ngIf="supervisorData; else noSupervisor">
+                                <span>{{supervisorData?.supervisorId?.name}}</span>
+                                <!-- <a>view details</a> -->
+                            </ng-container>
+                            <ng-template #noSupervisor>
+                                <span>NULL</span>
+                            </ng-template>
                         </div>
                     </div>
 
@@ -31,8 +36,13 @@
                         </div><br>
                         <div class="org-detail-text mt20">
                             <p>Supervisor Of</p>
+                            <!-- <ng-container *ngIf="supervisorOfData.length > 0; else noSup"> -->
                             <span>{{supervisorOfData.length}} Employees</span>
-                            <a>view details</a>
+                            <!-- <a *ngIf="supervisorOfData.length > 0">view details</a> -->
+                            <!-- </ng-container>
+                           <ng-template #noSup>
+                               <span>NULL</span>
+                           </ng-template> -->
                             <!-- <span *ngFor="let sup of supervisorOfData">{{sup?.empId?.name}},</span> -->
                         </div>
                     </div>
@@ -53,7 +63,7 @@
     </div>
 </div>
 
-<div class="add-details">
+<div class="add-details" *ngIf="supervisorData">
     <h1>Employee's Supervisor Details</h1>
     <div class="cover-outer edit-details mt40" id="viewStudentId">
         <div class="row">
@@ -86,7 +96,7 @@
     </div>
 </div>
 <!-- ///////////////////////// supervisor of ///////////////////// -->
-<div class="add-details">
+<div class="add-details" *ngIf="supervisorOfData.length > 0">
     <h1>{{empData?.name}} Supervisor of {{supervisorOfData.length}} Employees</h1>
     <div class="cover-outer edit-details mt40" id="viewStudentId">
         <div class="row">
@@ -95,7 +105,7 @@
                     <div class="d-block">
                         <div class="org-detail-text">
                             <span>{{i+1}}</span>
-                        </div><br>
+                        </div>
                     </div>
                     <div class="d-block">
                         <div class="org-detail-text">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmployeeServiceService } from 'src/app/service/employee-service.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class AddEmployeeComponent implements OnInit {
   nameError: boolean;
   // public config: ToasterConfig = new ToasterConfig({ limit: 1 });
   constructor(private fb: FormBuilder, private empService: EmployeeServiceService,
+    private router: Router
     // private ts: ToasterService,
   ) { }
   ngOnInit() {
@@ -42,25 +44,22 @@ export class AddEmployeeComponent implements OnInit {
     this.designationError = this.empForm.controls.designation.invalid;
     this.experienceError = this.empForm.controls.experience.invalid;
 
-    console.log("this.empForm.value", this.empForm.value)
     if (this.empForm.valid) {
       this.loading = true;
       this.empService.addEmployee(this.empForm.value).subscribe((res: any) => {
         this.loading = false;
         if (res.IsSuccess) {
           this.loading = false;
-          // this.ts.pop("success", "", "Logged in");
-          // this.initLoginForm();
+          // this.ts.pop("success", "", "Succfully added");
+          this.router.navigate(["/view"])
         } else {
           this.loading = false;
           //console.log("error invalid ");
-          // this.ts.pop("error", "", "Invalid designation/password");
         }
       },
         (error) => {
           this.loading = false;
           //console.log(error);
-          // this.ts.pop("error", "", "Invalid designation/password");
         }
       );
     } else {

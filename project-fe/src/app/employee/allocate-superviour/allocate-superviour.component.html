@@ -1,50 +1,57 @@
-<h1>Employee Data</h1><br>
-<div style="overflow-x:auto;">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Designation</th>
-            <th>Joining Date</th>
-            <th>Allocate Supervisor </th>
-            <th>View Details</th>
-        </tr>
-        <tr *ngFor="let emp of employeeData">
-            <td>{{emp?.name}}</td>
-            <td>{{emp?.email}}</td>
-            <td>{{emp?.designation}}</td>
-            <td>{{emp?.registedOn | date}}</td>
-            <td><button type="button" class="btn btn-info" (click)="modalOpen(emp?._id)">Allocate</button></td>
-            <td><button type="button" class="btn btn-primary" [routerLink]="['/details', emp?._id]">View</button></td>
+<div class="main">
+    <div class="hadingDiv">
+        <h1>Employee Data</h1>
+        <button class="btn btn-info addBtn" routerLink="/employee">Add Employee</button>
+    </div>
+    <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Joining Date</th>
+                <th>Allocate Supervisor </th>
+                <th>View Details</th>
+            </tr>
+            <tr *ngFor="let emp of employeeData">
+                <td>{{emp?.name}}</td>
+                <td>{{emp?.email}}</td>
+                <td>{{emp?.designation}}</td>
+                <td>{{emp?.registedOn | date}}</td>
+                <td><button type="button" class="btn btn-info" (click)="modalOpen(emp?._id)">Allocate</button></td>
+                <td><button type="button" class="btn btn-primary" [routerLink]="['/details', emp?._id]">View</button>
+                </td>
 
-        </tr>
-    </table>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+            </tr>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Allocate Supervisor</h4>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <label class="modalLable">Select supervisor</label>
-                    <select class="select" (change)="selectedSupervisor($event.target.value)">
-                        <option value="" selected disabled>Select Supervisor</option>
-                        <option *ngFor="let option of supervisorData" [value]="option._id">{{option?.name}} ({{option?.designation}})</option>
-                    </select>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Allocate Supervisor</h4>
                 </div>
+                <div class="modal-body">
+                    <div>
+                        <label class="modalLable">Select supervisor</label>
+                        <select class="select" (change)="selectedSupervisor($event.target.value)">
+                            <option value="" selected disabled>Select Supervisor</option>
+                            <option *ngFor="let option of supervisorData" [value]="option._id">{{option?.name}}
+                                ({{option?.designation}})</option>
+                        </select>
+                    </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" (click)="onAllocateBtn()">Allocate</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" (click)="onAllocateBtn()">Allocate</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+
         </div>
-
     </div>
 </div>

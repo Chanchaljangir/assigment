@@ -12,7 +12,7 @@ export class EmployeeDetailsComponent implements OnInit {
   loading: boolean;
   empData: any;
   supervisorData: any;
-  supervisorOfData: any;
+  supervisorOfData = [];
 
   constructor(private empService: EmployeeServiceService, private route: ActivatedRoute,) {
     this.route.params.subscribe((params: Params) => {
@@ -44,7 +44,7 @@ export class EmployeeDetailsComponent implements OnInit {
       this.loading = false;
       if (res.IsSuccess) {
         this.loading = false;
-        this.supervisorData = res.Data[0] 
+        this.supervisorData = res.Data[0]
         // this.ts.pop("success", "", "Logged in");
       } else {
         this.loading = false;

@@ -5,7 +5,7 @@ import { AllocateSuperviourComponent } from './allocate-superviour/allocate-supe
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 const routes: Routes = [
-    { path: '', component: AddEmployeeComponent },
+    { path: '', component: AllocateSuperviourComponent },
     { path: 'employee', component: AddEmployeeComponent },
     {path : 'view', component: AllocateSuperviourComponent},
     {path : 'details/:id', component: EmployeeDetailsComponent}
