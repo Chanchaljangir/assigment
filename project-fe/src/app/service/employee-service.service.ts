@@ -26,4 +26,8 @@ export class EmployeeServiceService {
   allocateSupervisor(obj) {
     return this.http.post<any>(environment.baseURL + 'assignEmployee', obj)
   }
+
+  getSpecificEmployee(empId){
+    return this.http.get<any>(environment.baseURL + 'specificEmployee/' + empId)
+  }
 }

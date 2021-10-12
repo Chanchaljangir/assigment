@@ -12,7 +12,7 @@
             <td>{{emp?.email}}</td>
             <td>{{emp?.experience}}</td>
             <td><button type="button" (click)="modalOpen(emp?._id)">Allocate</button></td>
-            <td><button type="button">View</button></td>
+            <td><button type="button" [routerLink]="['/details', emp?._id]">View</button></td>
 
         </tr>
     </table>
