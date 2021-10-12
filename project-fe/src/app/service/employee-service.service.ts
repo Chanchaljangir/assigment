@@ -30,4 +30,13 @@ export class EmployeeServiceService {
   getSpecificEmployee(empId){
     return this.http.get<any>(environment.baseURL + 'specificEmployee/' + empId)
   }
+
+  findSuperviour(empId){
+    return this.http.get<any>(environment.baseURL + 'superviour/' + empId)
+  }
+
+
+  superviourEmp(empId){
+    return this.http.get<any>(environment.baseURL + 'superviourEmp/' + empId)
+  }
 }

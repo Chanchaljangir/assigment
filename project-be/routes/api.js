@@ -9,5 +9,7 @@ router.get("/eligiableSupervisoryees/:empId", _employee.getAllEligiableSuperviso
 router.get("/specificEmployee/:empId", _employee.getSpecificEmployee);
 
 router.post("/assignEmployee", _employeeAssg.assignEmployee);
+router.get("/superviour/:empId", _employeeAssg.findSuperviour);
+router.get("/superviourEmp/:empId", _employeeAssg.superviourEmp);
 
 module.exports = router;

@@ -20,6 +20,8 @@ export class EmployeeDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getSpecificEmployee();
+    this.findSuperviour();
+    this.superviourEmp();
   }
   getSpecificEmployee() {
     this.empService.getSpecificEmployee(this.paramsId).subscribe((res: any) => {
@@ -27,6 +29,33 @@ export class EmployeeDetailsComponent implements OnInit {
       if (res.IsSuccess) {
         this.loading = false;
         this.empData = res.Data;
+        // this.ts.pop("success", "", "Logged in");
+      } else {
+        this.loading = false;
+        console.log("something wents wrong ");
+        // this.ts.pop("error", "", "Invalid mobile/password");
+      }
+    });
+  }
+  findSuperviour() {
+    this.empService.findSuperviour(this.paramsId).subscribe((res: any) => {
+      this.loading = false;
+      if (res.IsSuccess) {
+        this.loading = false;
+        // this.ts.pop("success", "", "Logged in");
+      } else {
+        this.loading = false;
+        console.log("something wents wrong ");
+        // this.ts.pop("error", "", "Invalid mobile/password");
+      }
+    });
+  }
+
+  superviourEmp() {
+    this.empService.superviourEmp(this.paramsId).subscribe((res: any) => {
+      this.loading = false;
+      if (res.IsSuccess) {
+        this.loading = false;
         // this.ts.pop("success", "", "Logged in");
       } else {
         this.loading = false;
